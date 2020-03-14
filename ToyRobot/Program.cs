@@ -11,7 +11,21 @@ namespace ToyRobot
 		static void Main(string[] args)
 		{
 			Console.WriteLine("Please enter a PLACE command to begin. Q at any time to exit.");
-			Console.ReadLine();
+			
+			while (true)
+			{
+				string input = Console.ReadLine();
+
+				//If user presses Q, exit app.
+				if (input.ToLower() == "q")
+				{
+					break;
+				} 
+				else
+				{
+					//Pass command through to Robot
+				}
+			}
 		}
 	}
 }

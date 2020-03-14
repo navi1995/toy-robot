@@ -49,8 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CommandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MoveTests.cs" />
+    <Compile Include="PlaceTests.cs" />
+    <Compile Include="ReportTests.cs" />
+    <Compile Include="TurnTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
