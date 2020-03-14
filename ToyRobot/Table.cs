@@ -5,8 +5,8 @@
 	/// </summary>
 	public class Table
 	{
-		public int Rows;
-		public int Columns;
+		public int Rows { get; private set; }
+		public int Columns { get; private set; }
 
 		public Table(int rows, int columns)
 		{

@@ -140,8 +140,8 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual(expectedResult, commandResult);
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(1, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(1, toy.Position.Y);
 		}
 
 		//REPORT COMMANDS

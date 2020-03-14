@@ -10,21 +10,20 @@ namespace ToyRobot
 		public const string INVALID_COMMAND = "Invalid command. Please follow correct formatting - Command Discarded";
 
 		//Robot attributes : TODO: change x/y to a Class of Position.
-		public int X = -1;
-		public int Y = -1;
-		public Direction Direction = Direction.NORTH;
+		public Position Position { get; set; }
+		public Direction Direction { get; set; }
 		private bool Placed = false;
 		private Table TableTop = new Table(5, 5);
 
 		public Robot() {
-
+			Position = new Position(-1, -1);
+			Direction = Direction.NORTH;
 		}
 
 		public Robot(int x, int y, Direction direction)
 		{
-			X = x;
-			Y = y;
 			Direction = direction;
+			Position = new Position(x, y);
 
 			//Constructor used by tests, if position is valid then assume robot has already been placed.
 			if (TableTop.IsValidPosition(x, y))
@@ -102,8 +101,7 @@ namespace ToyRobot
 			} 
 			else
 			{
-				X = extractedX;
-				Y = extractedY;
+				Position = new Position(extractedX, extractedY);
 				Direction = extractedDirection;
 				Placed = true;
 			}
@@ -117,8 +115,8 @@ namespace ToyRobot
 		/// <returns>Error message to be displayed to user if Robot would be out of bounds.</returns>
 		public string Move()
 		{
-			int x = X;
-			int y = Y;
+			int x = Position.X;
+			int y = Position.Y;
 			string responseMessage = "";
 
 			switch (Direction)
@@ -140,8 +138,7 @@ namespace ToyRobot
 			//We only update robots position if coordinates are in the table top.
 			if (TableTop.IsValidPosition(x, y))
 			{
-				X = x;
-				Y = y;
+				Position = new Position(x, y);
 			} 
 			else
 			{
@@ -158,7 +155,7 @@ namespace ToyRobot
 		public string Report()
 		{
 			//Return empty string if robot not yet placed.
-			return  Placed ? X + "," + Y + "," + Direction : "";
+			return  Placed ? Position.X + "," + Position.Y + "," + Direction : "";
 		}
 
 		/// <summary>

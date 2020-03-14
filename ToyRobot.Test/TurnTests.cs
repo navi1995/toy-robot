@@ -12,16 +12,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnLeft(); //Direction = WEST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 
@@ -32,16 +31,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnRight(); //Direction = EAST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
@@ -52,16 +50,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.EAST,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnLeft(); //Direction = NORTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
@@ -72,16 +69,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.EAST,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnRight(); //Direction = SOUTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
@@ -92,16 +88,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.SOUTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnLeft(); //Direction = EAST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
@@ -112,16 +107,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.SOUTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnRight(); //Direction = WEST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 
@@ -132,16 +126,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.WEST,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnLeft(); //Direction = SOUTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
@@ -152,16 +145,15 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.WEST,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
 			toy.TurnRight(); //Direction = NORTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
@@ -172,8 +164,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -181,8 +172,8 @@ namespace ToyRobot.Test
 			toy.TurnRight(); //Direction = SOUTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
@@ -193,8 +184,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -203,8 +193,8 @@ namespace ToyRobot.Test
 			toy.TurnRight(); //Direction = WEST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 
@@ -215,8 +205,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -226,8 +215,8 @@ namespace ToyRobot.Test
 			toy.TurnRight(); //Direction = NORTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
@@ -238,8 +227,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -250,8 +238,8 @@ namespace ToyRobot.Test
 			toy.TurnRight(); //Direction = EAST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
@@ -262,8 +250,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -272,8 +259,8 @@ namespace ToyRobot.Test
 			toy.TurnLeft(); //Direction = EAST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
@@ -284,8 +271,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -295,8 +281,8 @@ namespace ToyRobot.Test
 			toy.TurnLeft(); //Direction = NORTH
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
@@ -307,8 +293,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.NORTH,
-				X = 0,
-				Y = 0
+				Position = new Position(0, 0)
 			};
 
 			//act
@@ -321,8 +306,8 @@ namespace ToyRobot.Test
 			toy.TurnRight(); //Direction = WEST
 
 			//assert
-			Assert.AreEqual(0, toy.X);
-			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(0, toy.Position.X);
+			Assert.AreEqual(0, toy.Position.Y);
 			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 	}

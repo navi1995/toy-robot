@@ -19,8 +19,8 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual("1,4,NORTH", reportResult);
-			Assert.AreEqual(1, toy.X);
-			Assert.AreEqual(4, toy.Y);
+			Assert.AreEqual(1, toy.Position.X);
+			Assert.AreEqual(4, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
@@ -52,8 +52,8 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual("1,4,NORTH", reportResult);
-			Assert.AreEqual(1, toy.X);
-			Assert.AreEqual(4, toy.Y);
+			Assert.AreEqual(1, toy.Position.X);
+			Assert.AreEqual(4, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 
 			//act
@@ -62,8 +62,8 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual("1,4,NORTH", reportResult);
-			Assert.AreEqual(1, toy.X);
-			Assert.AreEqual(4, toy.Y);
+			Assert.AreEqual(1, toy.Position.X);
+			Assert.AreEqual(4, toy.Position.Y);
 			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 	}

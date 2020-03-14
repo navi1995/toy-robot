@@ -60,8 +60,7 @@ namespace ToyRobot.Test
 			Robot toy = new Robot
 			{
 				Direction = Direction.SOUTH,
-				X = 6,
-				Y = 2
+				Position = new Position(6, 2)
 			};
 
 			//act
