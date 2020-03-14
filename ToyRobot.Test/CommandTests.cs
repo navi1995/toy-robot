@@ -22,6 +22,19 @@ namespace ToyRobot.Test
 		}
 
 		[TestMethod]
+		public void Command_Invalid_IncorrectPlaceFormat()
+		{
+			//arrange
+			Robot toy = new Robot();
+
+			//act
+			string commandResult = toy.Command("PLACE NORTH,1,1");
+
+			//assert
+			Assert.AreEqual(Robot.INVALID_COMMAND, commandResult);
+		}
+
+		[TestMethod]
 		public void Command_Invalid_PlaceOffTable_NegativeX()
 		{
 			//arrange
@@ -213,6 +226,25 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual("3,3,NORTH", commandResult);
+		}
+
+		[TestMethod]
+		public void Command_ValidCommands_D()
+		{
+			//arrange
+			Robot toy = new Robot();
+			string commandResult;
+
+			//act
+			commandResult = toy.Command("PLACE 1,2,EAST");
+			commandResult = toy.Command("MOVE"); //2,2,E
+			commandResult = toy.Command("MOVE"); //3,2,E
+			commandResult = toy.Command("RIGHT");//3,2,S
+			commandResult = toy.Command("MOVE"); //3,1,S
+			commandResult = toy.Command("REPORT");
+
+			//assert
+			Assert.AreEqual("3,1,SOUTH", commandResult);
 		}
 
 		[TestMethod]

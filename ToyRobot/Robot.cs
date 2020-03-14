@@ -17,7 +17,7 @@ namespace ToyRobot
 		public int yPos = -1;
 		public Direction direction = Direction.NORTH;
 		private bool placed = false;
-		private Table tableTop = new Table();
+		private Table tableTop = new Table(5, 5);
 
 		public Robot() { }
 
@@ -202,11 +202,6 @@ namespace ToyRobot
 		public int tableX { get; set; }
 		public int tableY { get; set; }
 
-		public Table()
-		{
-			tableX = 5;
-			tableY = 5;
-		}
 
 		public Table(int x, int y)
 		{
