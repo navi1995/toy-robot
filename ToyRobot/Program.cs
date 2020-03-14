@@ -10,11 +10,14 @@ namespace ToyRobot
 	{
 		static void Main(string[] args)
 		{
+			string input;
+			Robot toy = new Robot();
+
 			Console.WriteLine("Please enter a PLACE command to begin. Q at any time to exit.");
 			
 			while (true)
 			{
-				string input = Console.ReadLine();
+				input = Console.ReadLine();
 
 				//If user presses Q, exit app.
 				if (input.ToLower() == "q")
@@ -24,6 +27,12 @@ namespace ToyRobot
 				else
 				{
 					//Pass command through to Robot
+					string response = toy.Command(input);
+
+					if (!string.IsNullOrEmpty(response))
+					{
+						Console.WriteLine(response);
+					}
 				}
 			}
 		}
