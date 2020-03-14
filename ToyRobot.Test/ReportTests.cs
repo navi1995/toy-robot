@@ -11,12 +11,7 @@ namespace ToyRobot.Test
 		public void Report_CorrectPosition_North()
 		{
 			//arrange
-			Robot toy = new Robot
-			{
-				direction = "NORTH",
-				xPos = 3,
-				yPos = 2
-			};
+			Robot toy = new Robot(3, 2, Direction.NORTH);
 
 			//act
 			string reportResult = toy.Report();
@@ -29,12 +24,7 @@ namespace ToyRobot.Test
 		public void Report_CorrectPosition_South()
 		{
 			//arrange
-			Robot toy = new Robot
-			{
-				direction = "SOUTH",
-				xPos = 3,
-				yPos = 2
-			};
+			Robot toy = new Robot(3, 2, Direction.SOUTH);
 
 			//act
 			string reportResult = toy.Report();
@@ -47,12 +37,7 @@ namespace ToyRobot.Test
 		public void Report_CorrectPosition_ThenPlaceAgain()
 		{
 			//arrange
-			Robot toy = new Robot
-			{
-				direction = "SOUTH",
-				xPos = 3,
-				yPos = 2
-			};
+			Robot toy = new Robot(3, 2, Direction.SOUTH);
 			string reportResult;
 
 			//act
@@ -76,7 +61,7 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = "SOUTH",
+				direction = Direction.SOUTH,
 				xPos = 6,
 				yPos = 2
 			};

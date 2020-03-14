@@ -18,7 +18,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("MOVE");
 
 			//assert
-			Assert.AreEqual("Robot not yet PLACED - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.NOT_PLACED_ERROR, commandResult);
 		}
 
 		[TestMethod]
@@ -31,7 +31,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE -1,0,NORTH");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -44,7 +44,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE 0,-1,EAST");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -57,7 +57,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE -1,-1,NORTH");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -70,7 +70,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE 6,1,WEST");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -83,7 +83,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE 1,6,SOUTH");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -96,7 +96,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("PLACE 6,6,SOUTH");
 
 			//assert
-			Assert.AreEqual("Robot cannot be placed off table - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.ROBOT_OUT_OF_BOUNDS, commandResult);
 		}
 
 		[TestMethod]
@@ -109,7 +109,7 @@ namespace ToyRobot.Test
 			string commandResult = toy.Command("qwerty");
 
 			//assert
-			Assert.AreEqual("Unrecognised input - Command discarded.", commandResult);
+			Assert.AreEqual(Robot.INVALID_COMMAND, commandResult);
 		}
 
 		[TestMethod]
@@ -137,12 +137,8 @@ namespace ToyRobot.Test
 		public void Command_Report_CorrectLocation()
 		{
 			//arrange
-			Robot toy = new Robot 
-			{ 
-				direction = "NORTH",
-				xPos = 4,
-				yPos = 3
-			};
+			Robot toy = new Robot(4, 3, Direction.NORTH);
+				
 			string expectedResult = "4,3,NORTH";
 
 			//act

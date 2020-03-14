@@ -22,7 +22,7 @@ namespace ToyRobot.Test
 			Assert.AreEqual("1,4,NORTH", reportResult);
 			Assert.AreEqual(1, toy.xPos);
 			Assert.AreEqual(4, toy.yPos);
-			Assert.AreEqual("NORTH", toy.direction);
+			Assert.AreEqual(Direction.NORTH, toy.direction);
 		}
 
 		[TestMethod]
@@ -55,7 +55,7 @@ namespace ToyRobot.Test
 			Assert.AreEqual("1,4,NORTH", reportResult);
 			Assert.AreEqual(1, toy.xPos);
 			Assert.AreEqual(4, toy.yPos);
-			Assert.AreEqual("NORTH", toy.direction);
+			Assert.AreEqual(Direction.NORTH, toy.direction);
 
 			//act
 			toy.Place("6,6,NORTH"); //Should be ignored since out of bounds.
@@ -65,7 +65,7 @@ namespace ToyRobot.Test
 			Assert.AreEqual("1,4,NORTH", reportResult);
 			Assert.AreEqual(1, toy.xPos);
 			Assert.AreEqual(4, toy.yPos);
-			Assert.AreEqual("NORTH", toy.direction);
+			Assert.AreEqual(Direction.NORTH, toy.direction);
 		}
 	}
 }

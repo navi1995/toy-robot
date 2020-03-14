@@ -9,17 +9,29 @@ namespace ToyRobot
 	public class Robot
 	{
 		//ERROR MESSAGES
-		public const string NOT_PLACED_ERROR = "Robot has not yet been placed - Command Ignored.";
-		public const string ROBOT_OUT_OF_BOUNDS = "Command would result in Robot falling off table - Command Ignored.";
-		public const string INVALID_COMMAND = "Invalid command. Please follow correct formatting - Command Ignored";
+		public const string NOT_PLACED_ERROR = "Robot has not yet been placed - Command Discarded.";
+		public const string ROBOT_OUT_OF_BOUNDS = "Command would result in Robot falling off table - Command Discarded.";
+		public const string INVALID_COMMAND = "Invalid command. Please follow correct formatting - Command Discarded";
 		//Robot attributes
 		public int xPos = -1;
 		public int yPos = -1;
 		public Direction direction = Direction.NORTH;
-		private bool placedCommand = false;
+		private bool placed = false;
 		private Table tableTop = new Table();
 
 		public Robot() { }
+
+		public Robot(int x, int y, Direction direction)
+		{
+			xPos = x;
+			yPos = y;
+			this.direction = direction;
+
+			if (tableTop.IsValidPosition(x, y))
+			{
+				placed = true;
+			}
+		}
 
 		/// <summary>
 		/// Processes commands that the user has entered. If return value is not empty or null, this means an error has occured or REPORT command was run.
@@ -31,11 +43,16 @@ namespace ToyRobot
 			string userCommand = input.ToUpper().Trim();
 			string responseMessage = "";
 
-			if (userCommand.Contains("PLACE"))
+			//Explicitly doing this here rather than in an else so that NOT_PLACED_ERROR doesnt occur if user starts off with incorrect input.
+			if (!(userCommand.Contains("PLACE") || userCommand == "MOVE" || userCommand == "RIGHT" || userCommand == "LEFT" || userCommand == "REPORT"))
+			{
+				responseMessage = INVALID_COMMAND;
+			} 
+			else if (userCommand.Contains("PLACE"))
 			{
 				responseMessage = Place(userCommand.Replace("PLACE", "").Trim());
 			}
-			else if (!placedCommand)
+			else if (!placed)
 			{
 				responseMessage = NOT_PLACED_ERROR;
 			} 
@@ -89,7 +106,7 @@ namespace ToyRobot
 				xPos = extractedX;
 				yPos = extractedY;
 				direction = extractedDirection;
-				placedCommand = true;
+				placed = true;
 			}
 
 			return responseMessage;
@@ -140,7 +157,8 @@ namespace ToyRobot
 		/// <returns>String with current position and direction of Robot in form X,Y,F</returns>
 		public string Report()
 		{
-			return xPos + "," + yPos + "," + direction;
+			//Return empty string if robot not yet placed.
+			return  placed ? xPos + "," + yPos + "," + direction : "";
 		}
 
 		/// <summary>
@@ -204,7 +222,7 @@ namespace ToyRobot
 		/// <returns></returns>
 		public bool IsValidPosition(int x, int y)
 		{
-			if ((x < 0 || y < 0) || (x > this.tableX || y > this.tableY))
+			if ((x < 0 || y < 0) || (x >= this.tableX || y >= this.tableY))
 			{
 				return false;
 			} 
