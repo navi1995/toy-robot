@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ToyRobot
 {
@@ -12,24 +8,28 @@ namespace ToyRobot
 		public const string NOT_PLACED_ERROR = "Robot has not yet been placed - Command Discarded.";
 		public const string ROBOT_OUT_OF_BOUNDS = "Command would result in Robot falling off table - Command Discarded.";
 		public const string INVALID_COMMAND = "Invalid command. Please follow correct formatting - Command Discarded";
-		//Robot attributes
-		public int xPos = -1;
-		public int yPos = -1;
-		public Direction direction = Direction.NORTH;
-		private bool placed = false;
-		private Table tableTop = new Table(5, 5);
 
-		public Robot() { }
+		//Robot attributes : TODO: change x/y to a Class of Position.
+		public int X = -1;
+		public int Y = -1;
+		public Direction Direction = Direction.NORTH;
+		private bool Placed = false;
+		private Table TableTop = new Table(5, 5);
+
+		public Robot() {
+
+		}
 
 		public Robot(int x, int y, Direction direction)
 		{
-			xPos = x;
-			yPos = y;
-			this.direction = direction;
+			X = x;
+			Y = y;
+			Direction = direction;
 
-			if (tableTop.IsValidPosition(x, y))
+			//Constructor used by tests, if position is valid then assume robot has already been placed.
+			if (TableTop.IsValidPosition(x, y))
 			{
-				placed = true;
+				Placed = true;
 			}
 		}
 
@@ -43,7 +43,7 @@ namespace ToyRobot
 			string userCommand = input.ToUpper().Trim();
 			string responseMessage = "";
 
-			//Explicitly doing this here rather than in an else so that NOT_PLACED_ERROR doesnt occur if user starts off with incorrect input.
+			//Explicitly doing this here rather than in at the end as this error message should take priority. 
 			if (!(userCommand.Contains("PLACE") || userCommand == "MOVE" || userCommand == "RIGHT" || userCommand == "LEFT" || userCommand == "REPORT"))
 			{
 				responseMessage = INVALID_COMMAND;
@@ -52,7 +52,7 @@ namespace ToyRobot
 			{
 				responseMessage = Place(userCommand.Replace("PLACE", "").Trim());
 			}
-			else if (!placed)
+			else if (!Placed)
 			{
 				responseMessage = NOT_PLACED_ERROR;
 			} 
@@ -85,8 +85,7 @@ namespace ToyRobot
 		{
 			string responseMessage = "";
 			string[] splitCommand = placeCommand.Split(',');
-			int extractedX;
-			int extractedY;
+			int extractedX, extractedY;
 			Direction extractedDirection;
 
 			//Checks if command is valid by trying to parse values the user has entered. 
@@ -97,16 +96,16 @@ namespace ToyRobot
 			{
 				responseMessage = INVALID_COMMAND;
 			}
-			else if (!tableTop.IsValidPosition(extractedX, extractedY))
+			else if (!TableTop.IsValidPosition(extractedX, extractedY))
 			{
 				responseMessage = ROBOT_OUT_OF_BOUNDS;
 			} 
 			else
 			{
-				xPos = extractedX;
-				yPos = extractedY;
-				direction = extractedDirection;
-				placed = true;
+				X = extractedX;
+				Y = extractedY;
+				Direction = extractedDirection;
+				Placed = true;
 			}
 
 			return responseMessage;
@@ -118,11 +117,11 @@ namespace ToyRobot
 		/// <returns>Error message to be displayed to user if Robot would be out of bounds.</returns>
 		public string Move()
 		{
-			int x = xPos;
-			int y = yPos;
+			int x = X;
+			int y = Y;
 			string responseMessage = "";
 
-			switch (direction)
+			switch (Direction)
 			{
 				case Direction.NORTH:
 					y++;
@@ -138,10 +137,11 @@ namespace ToyRobot
 					break;
 			}
 
-			if (tableTop.IsValidPosition(x, y))
+			//We only update robots position if coordinates are in the table top.
+			if (TableTop.IsValidPosition(x, y))
 			{
-				xPos = x;
-				yPos = y;
+				X = x;
+				Y = y;
 			} 
 			else
 			{
@@ -158,7 +158,7 @@ namespace ToyRobot
 		public string Report()
 		{
 			//Return empty string if robot not yet placed.
-			return  placed ? xPos + "," + yPos + "," + direction : "";
+			return  Placed ? X + "," + Y + "," + Direction : "";
 		}
 
 		/// <summary>
@@ -177,62 +177,24 @@ namespace ToyRobot
 			Turn("LEFT");
 		}
 
+		//Set new direction of the Robot depending on what the current direction is.
 		private void Turn(string turnDirection)
 		{
-			switch (direction)
+			switch (Direction)
 			{
 				case Direction.NORTH:
-					direction = turnDirection == "RIGHT" ? Direction.EAST : Direction.WEST;
+					Direction = turnDirection == "RIGHT" ? Direction.EAST : Direction.WEST;
 					break;
 				case Direction.EAST:
-					direction = turnDirection == "RIGHT" ? Direction.SOUTH : Direction.NORTH;
+					Direction = turnDirection == "RIGHT" ? Direction.SOUTH : Direction.NORTH;
 					break;
 				case Direction.SOUTH:
-					direction = turnDirection == "RIGHT" ? Direction.WEST : Direction.EAST;
+					Direction = turnDirection == "RIGHT" ? Direction.WEST : Direction.EAST;
 					break;
 				case Direction.WEST:
-					direction = turnDirection == "RIGHT" ? Direction.NORTH : Direction.SOUTH;
+					Direction = turnDirection == "RIGHT" ? Direction.NORTH : Direction.SOUTH;
 					break;
 			}
 		}
-	}
-
-	public class Table
-	{
-		public int tableX { get; set; }
-		public int tableY { get; set; }
-
-
-		public Table(int x, int y)
-		{
-			tableX = x;
-			tableY = y;
-		}
-
-		/// <summary>
-		/// Checks if coordinates provided would be within the play area of the table.
-		/// </summary>
-		/// <param name="x">X Coordinate</param>
-		/// <param name="y">Y Coordinate</param>
-		/// <returns></returns>
-		public bool IsValidPosition(int x, int y)
-		{
-			if ((x < 0 || y < 0) || (x >= this.tableX || y >= this.tableY))
-			{
-				return false;
-			} 
-			else
-			{
-				return true;
-			}
-		}
-	}
-
-	public enum Direction
-	{
-		NORTH,
-		EAST,
-		SOUTH,
-		WEST
 	}
 }

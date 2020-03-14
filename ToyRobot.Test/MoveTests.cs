@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToyRobot;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ToyRobot.Test
 {
@@ -13,9 +11,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.NORTH,
-				xPos = 0,
-				yPos = 0
+				Direction = Direction.NORTH,
+				X = 0,
+				Y = 0
 			};
 
 			//act
@@ -24,9 +22,9 @@ namespace ToyRobot.Test
 			toy.Move();
 
 			//assert
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(3, toy.yPos);
-			Assert.AreEqual(Direction.NORTH, toy.direction);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(3, toy.Y);
+			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
 		[TestMethod]
@@ -35,9 +33,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.NORTH,
-				xPos = 0,
-				yPos = 0
+				Direction = Direction.NORTH,
+				X = 0,
+				Y = 0
 			};
 
 			//act
@@ -48,9 +46,9 @@ namespace ToyRobot.Test
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(4, toy.yPos);
-			Assert.AreEqual(Direction.NORTH, toy.direction);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(4, toy.Y);
+			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
 		[TestMethod]
@@ -59,9 +57,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.SOUTH,
-				xPos = 0,
-				yPos = 4
+				Direction = Direction.SOUTH,
+				X = 0,
+				Y = 4
 			};
 
 			//act
@@ -70,9 +68,9 @@ namespace ToyRobot.Test
 			toy.Move();
 
 			//assert
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(1, toy.yPos);
-			Assert.AreEqual(Direction.SOUTH, toy.direction);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(1, toy.Y);
+			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
 		[TestMethod]
@@ -81,9 +79,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.SOUTH,
-				xPos = 0,
-				yPos = 4
+				Direction = Direction.SOUTH,
+				X = 0,
+				Y = 4
 			};
 
 			//act
@@ -94,9 +92,9 @@ namespace ToyRobot.Test
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.SOUTH, toy.direction);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
 		[TestMethod]
@@ -105,9 +103,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.EAST,
-				xPos = 0,
-				yPos = 0
+				Direction = Direction.EAST,
+				X = 0,
+				Y = 0
 			};
 
 			//act
@@ -116,9 +114,9 @@ namespace ToyRobot.Test
 			toy.Move();
 
 			//assert
-			Assert.AreEqual(3, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.EAST, toy.direction);
+			Assert.AreEqual(3, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
 		[TestMethod]
@@ -127,9 +125,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot 
 			{
-				direction = Direction.EAST,
-				xPos = 0,
-				yPos = 0
+				Direction = Direction.EAST,
+				X = 0,
+				Y = 0
 			};
 
 			//act
@@ -140,9 +138,9 @@ namespace ToyRobot.Test
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
-			Assert.AreEqual(4, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.EAST, toy.direction);
+			Assert.AreEqual(4, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.EAST, toy.Direction);
 		}
 
 		[TestMethod]
@@ -151,9 +149,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.WEST,
-				xPos = 4,
-				yPos = 0
+				Direction = Direction.WEST,
+				X = 4,
+				Y = 0
 			};
 
 			//act
@@ -162,9 +160,9 @@ namespace ToyRobot.Test
 			toy.Move();
 
 			//assert
-			Assert.AreEqual(1, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.WEST, toy.direction);
+			Assert.AreEqual(1, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 
 		[TestMethod]
@@ -173,9 +171,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.WEST,
-				xPos = 4,
-				yPos = 0
+				Direction = Direction.WEST,
+				X = 4,
+				Y = 0
 			};
 
 			//act
@@ -186,9 +184,9 @@ namespace ToyRobot.Test
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.WEST, toy.direction);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.WEST, toy.Direction);
 		}
 
 		[TestMethod]
@@ -197,23 +195,23 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.WEST,
-				xPos = 4,
-				yPos = 0
+				Direction = Direction.WEST,
+				X = 4,
+				Y = 0
 			};
 
 			//act
 			toy.Move(); //3,0
 			toy.Move(); //2,0
 			toy.Move(); //1,0
-			toy.TurnRight(); //direction = NORTH
+			toy.TurnRight(); //Direction = NORTH
 			toy.Move(); //1,1
 			toy.Move(); //1,2
 
 			//assert
-			Assert.AreEqual(1, toy.xPos);
-			Assert.AreEqual(2, toy.yPos);
-			Assert.AreEqual(Direction.NORTH, toy.direction);
+			Assert.AreEqual(1, toy.X);
+			Assert.AreEqual(2, toy.Y);
+			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 
 		[TestMethod]
@@ -222,23 +220,23 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.WEST,
-				xPos = 4,
-				yPos = 0
+				Direction = Direction.WEST,
+				X = 4,
+				Y = 0
 			};
 
 			//act
 			toy.Move(); //3,0
 			toy.Move(); //2,0
 			toy.Move(); //1,0
-			toy.TurnLeft(); //direction = SOUTH
+			toy.TurnLeft(); //Direction = SOUTH
 			toy.Move(); //1,0 - Movement will not proceed
 			toy.Move(); //1,0 - Movement will not proceed
 
 			//assert
-			Assert.AreEqual(1, toy.xPos);
-			Assert.AreEqual(0, toy.yPos);
-			Assert.AreEqual(Direction.SOUTH, toy.direction);
+			Assert.AreEqual(1, toy.X);
+			Assert.AreEqual(0, toy.Y);
+			Assert.AreEqual(Direction.SOUTH, toy.Direction);
 		}
 
 
@@ -249,16 +247,16 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.WEST,
-				xPos = 4,
-				yPos = 0
+				Direction = Direction.WEST,
+				X = 4,
+				Y = 0
 			};
 
 			//act
 			toy.Move(); //3,0
 			toy.Move(); //2,0
 			toy.Move(); //1,0
-			toy.TurnRight(); //direction = NORTH
+			toy.TurnRight(); //Direction = NORTH
 			toy.Move(); //1,1
 			toy.Move(); //1,2
 			toy.Move(); //1,3
@@ -268,9 +266,9 @@ namespace ToyRobot.Test
 
 
 			//assert
-			Assert.AreEqual(1, toy.xPos);
-			Assert.AreEqual(4, toy.yPos);
-			Assert.AreEqual(Direction.NORTH, toy.direction);
+			Assert.AreEqual(1, toy.X);
+			Assert.AreEqual(4, toy.Y);
+			Assert.AreEqual(Direction.NORTH, toy.Direction);
 		}
 	}
 }

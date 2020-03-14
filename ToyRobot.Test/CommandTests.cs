@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToyRobot;
 
 namespace ToyRobot.Test
 {
@@ -141,8 +140,8 @@ namespace ToyRobot.Test
 
 			//assert
 			Assert.AreEqual(expectedResult, commandResult);
-			Assert.AreEqual(0, toy.xPos);
-			Assert.AreEqual(1, toy.yPos);
+			Assert.AreEqual(0, toy.X);
+			Assert.AreEqual(1, toy.Y);
 		}
 
 		//REPORT COMMANDS

@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToyRobot;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ToyRobot.Test
 {
@@ -61,9 +59,9 @@ namespace ToyRobot.Test
 			//arrange
 			Robot toy = new Robot
 			{
-				direction = Direction.SOUTH,
-				xPos = 6,
-				yPos = 2
+				Direction = Direction.SOUTH,
+				X = 6,
+				Y = 2
 			};
 
 			//act
