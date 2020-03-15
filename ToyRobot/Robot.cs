@@ -94,7 +94,7 @@ namespace ToyRobot
 			{
 				responseMessage = INVALID_COMMAND;
 			}
-			else if (!Enum.TryParse<Direction>(splitCommand[2], out extractedDirection))
+			else if (!Enum.TryParse<Direction>(splitCommand[2].ToUpper(), out extractedDirection))
 			{
 				responseMessage = INVALID_COMMAND_DIRECTION;
 			}

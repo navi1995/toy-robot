@@ -16,7 +16,7 @@ namespace ToyRobot
 				input = Console.ReadLine();
 
 				//If user presses Q, exit app.
-				if (input.ToLower() == "q")
+				if (input.ToLower().Trim() == "q")
 				{
 					break;
 				} 

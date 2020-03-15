@@ -259,6 +259,25 @@ namespace ToyRobot.Test
 		}
 
 		[TestMethod]
+		public void Command_ValidCommands_CaseSensitiveTest()
+		{
+			//arrange
+			Robot toy = new Robot();
+			string commandResult;
+
+			//act
+			commandResult = toy.Command("plAcE 1,2,eaST");
+			commandResult = toy.Command("mOVe"); //2,2,EAST
+			commandResult = toy.Command("MovE"); //3,2,EAST
+			commandResult = toy.Command("rIGHT");//3,2,SOUTH
+			commandResult = toy.Command("movE"); //3,1,SOUTH
+			commandResult = toy.Command("rePoRT");
+
+			//assert
+			Assert.AreEqual("3,1,SOUTH", commandResult);
+		}
+
+		[TestMethod]
 		public void Command_PlaceAgain_OutOfBounds_ThenReport()
 		{
 			//arrange
