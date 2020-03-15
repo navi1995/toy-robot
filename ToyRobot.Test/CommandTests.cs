@@ -21,6 +21,19 @@ namespace ToyRobot.Test
 		}
 
 		[TestMethod]
+		public void Command_Invalid_IncorrectDirection()
+		{
+			//arrange
+			Robot toy = new Robot();
+
+			//act
+			string commandResult = toy.Command("PLACE 1,1,NORF");
+
+			//assert
+			Assert.AreEqual(Robot.INVALID_COMMAND_DIRECTION, commandResult);
+		}
+
+		[TestMethod]
 		public void Command_Invalid_IncorrectPlaceFormat()
 		{
 			//arrange
@@ -133,10 +146,10 @@ namespace ToyRobot.Test
 			string expectedResult = "0,1,NORTH";
 
 			//act
-			commandResult = toy.Command("PLACE 0,0,NORTH");
-			commandResult = toy.Command("qwerty");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("REPORT");
+			commandResult = toy.Command("PLACE 0,0,NORTH"); //0,0,N
+			commandResult = toy.Command("qwerty");			//Ignored
+			commandResult = toy.Command("MOVE");			//0,1
+			commandResult = toy.Command("REPORT");			//0,1,NORTH
 
 			//assert
 			Assert.AreEqual(expectedResult, commandResult);
@@ -150,7 +163,6 @@ namespace ToyRobot.Test
 		{
 			//arrange
 			Robot toy = new Robot(4, 3, Direction.NORTH);
-				
 			string expectedResult = "4,3,NORTH";
 
 			//act
@@ -169,8 +181,8 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 0,0,NORTH");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("MOVE");
+			commandResult = toy.Command("MOVE"); //0,1
+			commandResult = toy.Command("MOVE"); //0,2
 
 			//assert
 			Assert.AreEqual(String.Empty, commandResult);
@@ -185,7 +197,7 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 0,0,NORTH");
-			commandResult = toy.Command("MOVE");
+			commandResult = toy.Command("MOVE"); //0,1,NORTH
 			commandResult = toy.Command("REPORT");
 
 			//assert
@@ -201,7 +213,7 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 0,0,NORTH");
-			commandResult = toy.Command("LEFT");
+			commandResult = toy.Command("LEFT"); //0,0,WEST
 			commandResult = toy.Command("REPORT");
 
 			//assert
@@ -217,10 +229,10 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 1,2,EAST");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("LEFT");
-			commandResult = toy.Command("MOVE");
+			commandResult = toy.Command("MOVE"); //2,2,EAST
+			commandResult = toy.Command("MOVE"); //3,2,EAST
+			commandResult = toy.Command("LEFT"); //3,2,NORTH
+			commandResult = toy.Command("MOVE"); //3,3,NORTH
 			commandResult = toy.Command("REPORT");
 
 			//assert
@@ -236,10 +248,10 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 1,2,EAST");
-			commandResult = toy.Command("MOVE"); //2,2,E
-			commandResult = toy.Command("MOVE"); //3,2,E
-			commandResult = toy.Command("RIGHT");//3,2,S
-			commandResult = toy.Command("MOVE"); //3,1,S
+			commandResult = toy.Command("MOVE"); //2,2,EAST
+			commandResult = toy.Command("MOVE"); //3,2,EAST
+			commandResult = toy.Command("RIGHT");//3,2,SOUTH
+			commandResult = toy.Command("MOVE"); //3,1,SOUTH
 			commandResult = toy.Command("REPORT");
 
 			//assert
@@ -255,10 +267,10 @@ namespace ToyRobot.Test
 
 			//act
 			commandResult = toy.Command("PLACE 1,2,EAST");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("MOVE");
-			commandResult = toy.Command("LEFT");
-			commandResult = toy.Command("MOVE");
+			commandResult = toy.Command("MOVE"); //2,2,EAST
+			commandResult = toy.Command("MOVE"); //3,2,EAST
+			commandResult = toy.Command("LEFT"); //3,2,NORTH
+			commandResult = toy.Command("MOVE"); //3,3,NORTH
 			commandResult = toy.Command("PLACE 6,6,EAST"); //Ignored according to PROBLEM.md
 			commandResult = toy.Command("REPORT");
 

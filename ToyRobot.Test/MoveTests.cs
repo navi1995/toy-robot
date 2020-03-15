@@ -16,9 +16,9 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //0,1
+			toy.Move(); //0,2
+			toy.Move(); //0,3
 
 			//assert
 			Assert.AreEqual(0, toy.Position.X);
@@ -37,10 +37,10 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //0,1
+			toy.Move(); //0,2
+			toy.Move(); //0,3
+			toy.Move(); //0,4
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
@@ -60,9 +60,9 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //0,3
+			toy.Move(); //0,2
+			toy.Move(); //0,1
 
 			//assert
 			Assert.AreEqual(0, toy.Position.X);
@@ -81,10 +81,10 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //0,3
+			toy.Move(); //0,2
+			toy.Move(); //0,1
+			toy.Move(); //0,0
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
@@ -104,9 +104,9 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //1,0
+			toy.Move(); //2,0
+			toy.Move(); //3,0
 
 			//assert
 			Assert.AreEqual(3, toy.Position.X);
@@ -125,10 +125,10 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //1,0
+			toy.Move(); //2,0
+			toy.Move(); //3,0
+			toy.Move(); //4,0
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert
@@ -148,9 +148,9 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //3,0
+			toy.Move(); //2,0
+			toy.Move(); //1,0
 
 			//assert
 			Assert.AreEqual(1, toy.Position.X);
@@ -169,10 +169,10 @@ namespace ToyRobot.Test
 			};
 
 			//act
-			toy.Move();
-			toy.Move();
-			toy.Move();
-			toy.Move();
+			toy.Move(); //3,0
+			toy.Move(); //2,0
+			toy.Move(); //1,0
+			toy.Move(); //0,0
 			toy.Move(); //This move should not actually increment position since it would place the robot off the board.
 
 			//assert

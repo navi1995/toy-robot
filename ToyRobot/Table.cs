@@ -22,14 +22,7 @@
 		/// <returns></returns>
 		public bool IsValidPosition(int x, int y)
 		{
-			if ((x < 0 || y < 0) || (x >= this.Rows || y >= this.Columns))
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
+			return x >= 0 && x < Rows && y >= 0 && y < Columns;
 		}
 	}
 }

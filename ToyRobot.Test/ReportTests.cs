@@ -32,6 +32,33 @@ namespace ToyRobot.Test
 		}
 
 		[TestMethod]
+		public void Report_CorrectPosition_East()
+		{
+			//arrange
+			Robot toy = new Robot(3, 4, Direction.EAST);
+
+			//act
+			string reportResult = toy.Report();
+
+			//assert
+			Assert.AreEqual("3,4,EAST", reportResult);
+		}
+
+
+		[TestMethod]
+		public void Report_CorrectPosition_West()
+		{
+			//arrange
+			Robot toy = new Robot(4, 2, Direction.WEST);
+
+			//act
+			string reportResult = toy.Report();
+
+			//assert
+			Assert.AreEqual("4,2,WEST", reportResult);
+		}
+
+		[TestMethod]
 		public void Report_CorrectPosition_ThenPlaceAgain()
 		{
 			//arrange

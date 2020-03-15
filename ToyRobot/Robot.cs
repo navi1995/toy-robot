@@ -8,6 +8,7 @@ namespace ToyRobot
 		public const string NOT_PLACED_ERROR = "Robot has not yet been placed - Command Discarded.";
 		public const string ROBOT_OUT_OF_BOUNDS = "Command would result in Robot falling off table - Command Discarded.";
 		public const string INVALID_COMMAND = "Invalid command. Please follow correct formatting - Command Discarded";
+		public const string INVALID_COMMAND_DIRECTION = "Invalid direction. Please use NORTH, SOUTH, EAST or WEST. - Command Discarded";
 
 		//Robot attributes : TODO: change x/y to a Class of Position.
 		public Position Position { get; set; }
@@ -78,7 +79,7 @@ namespace ToyRobot
 		/// <summary>
 		/// Places the Robot onto the tabletop using input the user provides. If return value is not empty or null, then an error has occured.
 		/// </summary>
-		/// <param name="placeCommand">Expects string input in form X,Y,F, these are then associated to the relevant attributes</param>
+		/// <param name="placeCommand">Expects string input in form "X,Y,F", these are then associated to the relevant attributes</param>
 		/// <returns>Error message to be displayed to user.</returns>
 		public string Place(string placeCommand)
 		{
@@ -89,11 +90,13 @@ namespace ToyRobot
 
 			//Checks if command is valid by trying to parse values the user has entered. 
 			//Improvement here could be to present a specific message to user e.g you entered incorrect X value or incorrect direction etc.
-			if (splitCommand.Length != 3 
-				|| (!int.TryParse(splitCommand[0], out extractedX) || !int.TryParse(splitCommand[1], out extractedY)) 
-				|| !Enum.TryParse<Direction>(splitCommand[2], out extractedDirection))
+			if (splitCommand.Length != 3  || (!int.TryParse(splitCommand[0], out extractedX) || !int.TryParse(splitCommand[1], out extractedY)))
 			{
 				responseMessage = INVALID_COMMAND;
+			}
+			else if (!Enum.TryParse<Direction>(splitCommand[2], out extractedDirection))
+			{
+				responseMessage = INVALID_COMMAND_DIRECTION;
 			}
 			else if (!TableTop.IsValidPosition(extractedX, extractedY))
 			{

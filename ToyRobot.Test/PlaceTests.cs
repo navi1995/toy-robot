@@ -36,7 +36,7 @@ namespace ToyRobot.Test
 			reportResult = toy.Report();
 
 			//assert
-			Assert.AreEqual(String.Empty, reportResult);
+			Assert.AreEqual(string.Empty, reportResult);
 		}
 
 		[TestMethod]
