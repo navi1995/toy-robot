@@ -1,6 +1,6 @@
 # Toy Robot Simulator
 This is a C# Console application which simulates a toy robot moving on a 5 x 5 square tabletop. Movements are driven by user input, 
-however any commands that would lead to the robot falling off the play area are discarded. In this implementation 0,0 coordinates are assumed to be the SOUTH WEST most corner.
+however, any commands that would lead to the robot falling off the play area are discarded. In this implementation, 0,0 coordinates are assumed to be the SOUTHWEST most corner.
 
 The square tabletop can be visualised as below:
 | 0,4  | 1,4 | 2,4  | 3,4 | 4,4 |
@@ -14,7 +14,7 @@ The square tabletop can be visualised as below:
 
 ### Commands
 Commands are NOT case sensitive. The Console will accept the following commands as valid:
-- PLACE X,Y,F where X and Y are coordinates on the table and F is a direction (NORTH,EAST,SOUTH,WEST)
+- PLACE X,Y,F where X and Y are coordinates on the table and F is a direction (NORTH, EAST, SOUTH, WEST)
 - MOVE: This will move the Robot one unit forward in whichever direction it was facing
 - LEFT: This will rotate the Robot 90 degrees to the left
 - RIGHT: This will rotate the Robot 90 degrees to the right
@@ -31,9 +31,9 @@ This application was developed using TDD fundamentals where [unit tests](https:/
 core development of the application began. 
 OOP principles were also followed primarily through the usage of Classes and Encapsulation. 
 
-In the context of this application our primary functionality revolves around the Robot class.
+In the context of this application, our primary functionality revolves around the Robot class.
 
-The Robot Class has the following attributes:
+The Robot class has the following attributes:
 - Position (Class which represents X and Y coordinates of the Robot on the Table): PUBLIC
 - Direction (Enum which represents all cardinal directions NORTH, EAST, SOUTH and WEST): PUBLIC
 - TableTop (Class which represents the table area that the Robot can move on)
@@ -42,6 +42,6 @@ The Robot Class has the following attributes:
 Commands are passed through to the Robot class to be handled, which will then return a string if required to be displayed to the user.
 
 ### Notes
-The following online resources and documentation was used to follow TDD fundamentals and for creating my unit tests due to limited exposure:
+The following online resources and documentation were used to follow TDD fundamentals and for creating my unit tests due to limited exposure:
 - https://docs.microsoft.com/en-us/visualstudio/test/walkthrough-creating-and-running-unit-tests-for-managed-code?view=vs-2019
 - https://www.pluralsight.com/tech-blog/test-driven-development-fundamentals/
